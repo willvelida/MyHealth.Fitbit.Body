@@ -45,7 +45,7 @@ namespace MyHealth.Fitbit.Body.UnitTests.FunctionTests
         }
 
         [Fact]
-        public async Task RetrieveFoodLogResponseAndSendMappedObjectToNutritionTopic()
+        public async Task RetrieveFoodLogResponseAndSendMappedObjectToBodyTopic()
         {
             // Arrange           
             var testWeight = new mod.Weight { bmi = 26.5, date = "2020-05-10", fat = 10.0, weight = 90.0, logId = 1, source = "Test", time = DateTime.UtcNow.ToString() };

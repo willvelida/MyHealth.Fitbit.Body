@@ -48,7 +48,7 @@ namespace MyHealth.Fitbit.Body.Functions
                 {
                     var weight = new mdl.Weight();
                     _mapper.Map(record, weight);
-                    await _serviceBusHelpers.SendMessageToTopic(_configuration["WeightTopic"], weight);
+                    await _serviceBusHelpers.SendMessageToTopic(_configuration["BodyTopic"], weight);
                 }
                 log.LogInformation($"Successfully mapped and sent {weightResponse.weight.Count} records to Service Bus.");
             }
