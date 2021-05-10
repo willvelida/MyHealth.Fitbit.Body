@@ -99,7 +99,7 @@ stages:
                     azureSubscription: '$(azureSubscription)'
                     appType: functionApp
                     WebAppName: $(functionAppName)                   
-                    package: '$(Pipeline.Workspace)/drop/MyHealth.Fitbit.Nutrition.zip'
+                    package: '$(Pipeline.Workspace)/drop/MyHealth.Fitbit.Body.zip'
                     appSettings: '-FUNCTIONS_WORKER_RUNTIME "dotnet" -FUNCTIONS_EXTENSION_VERSION "~3" -KeyVaultName "willvelidakeyvault" -AccessTokenName "fitbitapiaccesstoken" -ServiceBusConnectionString "$(servicebusstorageconnectionstring)" -APPINSIGHTS_INSTRUMENTATIONKEY "2fc597df-fc6b-4b20-ac9c-ee7240b70704" -ExceptionQueue "myhealthexceptionqueue" -BodyTopic "myhealthbodytopic" -WEBSITE_TIME_ZONE "New Zealand Standard Time"'
                     enableCustomDeployment: true
                     RemoveAdditionalFilesFlag: true
