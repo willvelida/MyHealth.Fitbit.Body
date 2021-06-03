@@ -1,12 +1,11 @@
-using System;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MyHealth.Common;
 using MyHealth.Fitbit.Body.Services;
+using System;
+using System.Threading.Tasks;
 using mdl = MyHealth.Common.Models;
 
 namespace MyHealth.Fitbit.Body.Functions
@@ -31,7 +30,7 @@ namespace MyHealth.Fitbit.Body.Functions
         }
 
         [FunctionName(nameof(GetMonthlyWeightLogs))]
-        public async Task Run([TimerTrigger("0 0 6 1 * *")]TimerInfo myTimer, ILogger log)
+        public async Task Run([TimerTrigger("0 0 6 1 * *")] TimerInfo myTimer, ILogger log)
         {
             try
             {

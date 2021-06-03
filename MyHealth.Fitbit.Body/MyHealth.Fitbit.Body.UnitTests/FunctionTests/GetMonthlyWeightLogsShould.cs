@@ -6,14 +6,13 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using MyHealth.Common;
 using MyHealth.Fitbit.Body.Functions;
-using mod = MyHealth.Fitbit.Body.Models;
 using MyHealth.Fitbit.Body.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using mdl = MyHealth.Common.Models;
+using mod = MyHealth.Fitbit.Body.Models;
 
 namespace MyHealth.Fitbit.Body.UnitTests.FunctionTests
 {

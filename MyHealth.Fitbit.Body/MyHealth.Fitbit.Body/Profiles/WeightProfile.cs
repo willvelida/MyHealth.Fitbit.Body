@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using mdl = MyHealth.Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
 using MyHealth.Fitbit.Body.Models;
+using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using mdl = MyHealth.Common.Models;
 
 namespace MyHealth.Fitbit.Body.Profiles
 {

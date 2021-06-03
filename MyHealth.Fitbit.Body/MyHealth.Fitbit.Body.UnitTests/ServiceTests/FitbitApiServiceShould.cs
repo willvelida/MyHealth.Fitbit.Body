@@ -1,13 +1,10 @@
-﻿using Azure.Security.KeyVault.Secrets;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 using Moq;
 using MyHealth.Common;
 using MyHealth.Fitbit.Body.Services;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -46,6 +43,6 @@ namespace MyHealth.Fitbit.Body.UnitTests.ServiceTests
 
             // Assert
             await fitbitApiServiceAction.Should().ThrowAsync<Exception>();
-        }       
+        }
     }
 }

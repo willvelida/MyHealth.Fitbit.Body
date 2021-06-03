@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyHealth.Fitbit.Body", "MyHealth.Fitbit.Body\MyHealth.Fitbit.Body.csproj", "{CA870680-1DCE-4F2D-AC1E-7E3C791B0BC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyHealth.Fitbit.Body.UnitTests", "MyHealth.Fitbit.Body.UnitTests\MyHealth.Fitbit.Body.UnitTests.csproj", "{9D9995D0-8FC6-408B-BB3D-A39B8A42510E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyHealth.Fitbit.Body.UnitTests", "MyHealth.Fitbit.Body.UnitTests\MyHealth.Fitbit.Body.UnitTests.csproj", "{9D9995D0-8FC6-408B-BB3D-A39B8A42510E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

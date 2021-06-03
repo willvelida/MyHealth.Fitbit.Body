@@ -4,10 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using MyHealth.Common;
 using MyHealth.Fitbit.Body;
 using MyHealth.Fitbit.Body.Services;
+using MyHealth.Fitbit.Body.Validators;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 namespace MyHealth.Fitbit.Body
@@ -35,9 +34,10 @@ namespace MyHealth.Fitbit.Body
             builder.Services.AddSingleton<IKeyVaultHelper>(sp =>
             {
                 IConfiguration configuration = sp.GetService<IConfiguration>();
-                return new KeyVaultHelper(configuration["KeyVaultName"], configuration["tenantId"], configuration["clientId"], configuration["clientSecret"]);
+                return new KeyVaultHelper(configuration["KeyVaultName"]);
             });
             builder.Services.AddScoped<IFitbitApiService, FitbitApiService>();
+            builder.Services.AddScoped<IDateValidator, DateValidator>();
         }
     }
 }
