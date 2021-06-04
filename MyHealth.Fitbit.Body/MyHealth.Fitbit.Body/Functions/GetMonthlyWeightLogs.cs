@@ -30,7 +30,7 @@ namespace MyHealth.Fitbit.Body.Functions
         }
 
         [FunctionName(nameof(GetMonthlyWeightLogs))]
-        public async Task Run([TimerTrigger("0 0 6 */1 * *")] TimerInfo myTimer, ILogger log)
+        public async Task Run([TimerTrigger("0 0 6 1 * *")] TimerInfo myTimer, ILogger log)
         {
             try
             {
