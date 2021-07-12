@@ -5,8 +5,11 @@ using MyHealth.Common;
 using MyHealth.Fitbit.Body;
 using MyHealth.Fitbit.Body.Services;
 using MyHealth.Fitbit.Body.Validators;
+using Polly;
+using Polly.Extensions.Http;
 using System;
 using System.IO;
+using System.Net.Http;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 namespace MyHealth.Fitbit.Body
@@ -23,7 +26,6 @@ namespace MyHealth.Fitbit.Body
 
             builder.Services.AddSingleton<IConfiguration>(config);
             builder.Services.AddLogging();
-            builder.Services.AddHttpClient();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             builder.Services.AddSingleton<IServiceBusHelpers>(sp =>
@@ -36,8 +38,19 @@ namespace MyHealth.Fitbit.Body
                 IConfiguration configuration = sp.GetService<IConfiguration>();
                 return new KeyVaultHelper(configuration["KeyVaultName"]);
             });
-            builder.Services.AddScoped<IFitbitApiService, FitbitApiService>();
+            builder.Services.AddHttpClient<IFitbitApiService, FitbitApiService>()
+                .SetHandlerLifetime(TimeSpan.FromMinutes(15))
+                .AddPolicyHandler(GetRetryPolicy());
             builder.Services.AddScoped<IDateValidator, DateValidator>();
+        }
+
+        static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+        {
+            return HttpPolicyExtensions
+                .HandleTransientHttpError()
+                .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
+                .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2,
+                                                                            retryAttempt)));
         }
     }
 }
